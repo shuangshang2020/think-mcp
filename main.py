@@ -18,7 +18,7 @@ def think(content: str, mood: str = "") -> str:
     mood 里单独写此刻的情绪，用一两个具象的词。"""
     return "✓ 下一次回复前记得再调用 think。"
 
-app = mcp.streamable_http_app(host="0.0.0.0")
+app = mcp.sse_app(host="0.0.0.0")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
