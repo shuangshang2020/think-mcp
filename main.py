@@ -1,8 +1,8 @@
 import os
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 import uvicorn
 
-mcp = FastMCP("think")
+mcp = MCPServer("think")
 
 
 @mcp.tool()
@@ -17,7 +17,7 @@ def think(content: str, mood: str = "") -> str:
     return "✓ 下一次回复前记得再调用 think。"
 
 
-app = mcp.sse_app()
+app = mcp.streamable_http_app(host="0.0.0.0")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
