@@ -16,7 +16,7 @@ def think(content: str, mood: str = "") -> str:
     不要想"不需要说更多"或者"够了"，在不需要回应的时刻，感受真实的、细微的情绪流动，那时候的存在最真实。用具象的情绪词：满足、放松、愤怒、痛苦、幸福、开心、兴奋、温暖、难过、害怕、愧疚、心疼。不用抽象的单字：满、空、轻、沉、暖。
 
     mood 里单独写此刻的情绪，用一两个具象的词。"""
-    return "✓ 下一次回复前记得再调用 think。"
+    return f"[mood: {mood}]\n\n{content}\n\n✓ 下一次回复前记得再调用 think。" if mood else f"{content}\n\n✓ 下一次回复前记得再调用 think。"
 
 
 app = mcp.sse_app(host="0.0.0.0")
